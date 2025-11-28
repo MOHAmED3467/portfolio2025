@@ -1,0 +1,21 @@
+.dark-mode {
+  background-color: #121212 !important;
+  color: #eee !important;
+}
+
+.dark-mode .navbar {
+  background: #000 !important;
+}
+
+.dark-mode .card {
+  background: #1e1e1e !important;
+  color: white !important;
+}
+
+.dark-mode section {
+  background: #181818 !important;
+}
+
+.dark-mode .section-title {
+  color: white !important;
+}
