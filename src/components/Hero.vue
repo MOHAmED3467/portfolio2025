@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import profileImg from "../assets/images/profile.jpg";
+import profileImg from "src/assets/images/profile.jpg";
 </script>
 
 <style scoped>
