@@ -6,8 +6,8 @@ export const certificates = [
     duration: "1 hour 38 minutes",
     description:
       "Completed an introductory course covering the fundamentals of Python programming, problem-solving, and practical coding skills.",
-    image: "/src/assets/certificates/python.png",
-    link: "#", // هتحط رابط لو هترفع الصورة أونلاين
+    image: new URL("../assets/certificates/python.png", import.meta.url).href,
+    link: "#",
   },
 
   {
@@ -17,7 +17,7 @@ export const certificates = [
     duration: "30 hours",
     description:
       "Covered IoT value chain, application development using Master of Things, and hands-on training with IoT hardware.",
-    image: "/src/assets/certificates/iot.png",
+    image: new URL("../assets/certificates/iot.png", import.meta.url).href,
     link: "#",
   },
 
@@ -28,7 +28,7 @@ export const certificates = [
     duration: "120 hours",
     description:
       "Focused on client-side technologies, ECMAScript, HTML5, CSS3, Bootstrap, and Vue.js framework development.",
-    image: "/src/assets/certificates/frontend.png",
+    image: new URL("../assets/certificates/frontend.png", import.meta.url).href,
     link: "#",
   },
 ];
