@@ -28,8 +28,7 @@
 </template>
 
 <script setup>
-const profileImg = "/src/assets/images/profile.jpg";
-
+import profileImg from "../assets/images/profile.jpg";
 </script>
 
 <style scoped>
@@ -64,5 +63,4 @@ const profileImg = "/src/assets/images/profile.jpg";
 .btn-primary:hover {
   background: #4a44c9;
 }
-
 </style>
