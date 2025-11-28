@@ -6,7 +6,7 @@ export const certificates = [
     duration: "1 hour 38 minutes",
     description:
       "Completed an introductory course covering the fundamentals of Python programming, problem-solving, and practical coding skills.",
-    image: new URL("../assets/certificates/python.png", import.meta.url).href,
+    image: new URL("src/assets/certificates/python.png", import.meta.url).href,
     link: "#",
   },
 
