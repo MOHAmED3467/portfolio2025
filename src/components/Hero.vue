@@ -39,6 +39,7 @@
 </template>
 
 <script setup>
+<<<<<<< HEAD
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import profileImg from "../assets/images/profile.jpg";
@@ -97,6 +98,9 @@ onMounted(() => {
 
   type();
 });
+=======
+import profileImg from "src/assets/images/profile.jpg";
+>>>>>>> 69650f0bb3eb81901eaa0c784099c7f62a657a73
 </script>
 
 <style scoped>
@@ -226,5 +230,4 @@ onMounted(() => {
   box-shadow: 0 0 20px #2de0ff;
   transform: translateY(-3px);
 }
-
 </style>
