@@ -1,99 +1,154 @@
 <template>
-  <section id="projects" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center section-title mb-5">My GitHub Projects</h2>
+  <section id="projects" class="projects-section">
 
-      <!-- LOADING -->
-      <div v-if="loading" class="text-center fs-4">
-        Loading projects...
-      </div>
+    <h2 class="section-title">🚀 My GitHub Projects</h2>
 
-      <!-- ERROR -->
-      <div v-if="error" class="text-center text-danger">
-        Failed to load GitHub projects.
-      </div>
+    <div class="projects-grid">
+      <div
+        v-for="project in projects"
+        :key="project.id"
+        class="project-card neon-card"
+        data-aos="fade-up"
+      >
 
-      <!-- PROJECT LIST -->
-      <div class="row g-4" v-if="!loading && !error">
-        <div
-          v-for="repo in repos"
-          :key="repo.id"
-          class="col-md-6 col-lg-4"
-          data-aos="fade-up"
-        >
-          <div class="card p-3 shadow-sm h-100">
+      
 
-            <h5 class="fw-bold">{{ repo.name }}</h5>
+        <!-- Title -->
+        <h3 class="project-title">{{ project.name }}</h3>
 
-            <p class="text-muted small">
-              {{ repo.description || "No description provided." }}
-            </p>
+        <!-- Description -->
+        <p class="project-desc">
+          {{ project.description || "No description available." }}
+        </p>
 
-            <p class="small mb-1">
-              <strong>Language:</strong> {{ repo.language || "Unknown" }}
-            </p>
-
-            <p class="small text-secondary">
-              ⭐ Stars: {{ repo.stargazers_count }}
-              • 🍴 Forks: {{ repo.forks_count }}
-            </p>
-
-            <a
-              :href="repo.html_url"
-              target="_blank"
-              class="btn btn-dark w-100 mt-3"
-            >
-              View on GitHub
-            </a>
-
-          </div>
+        <!-- Tags -->
+        <div class="tags">
+          <span class="tag neon-tag">{{ project.language || "Unknown" }}</span>
+          <span class="tag neon-tag star-tag">⭐ {{ project.stars }}</span>
         </div>
-      </div>
 
+        <!-- Buttons -->
+        <div class="actions">
+          <a :href="project.url" target="_blank" class="neon-btn btn-small">GitHub</a>
+          <a v-if="project.demo" :href="project.demo" target="_blank" class="neon-outline btn-small">
+            Live Demo
+          </a>
+        </div>
+
+      </div>
     </div>
+
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
+import { fetchGitHubProjects } from "../data/projects.js";
 
-const repos = ref([]);
-const loading = ref(true);
-const error = ref(false);
+const projects = ref([]);
 
-const fetchRepos = async () => {
-  try {
-    const response = await fetch(
-      "https://api.github.com/users/MOHAmED3467/repos"
-    );
+onMounted(async () => {
+  projects.value = await fetchGitHubProjects();
+});
 
-    if (!response.ok) {
-      error.value = true;
-      return;
-    }
-
-    const data = await response.json();
-
-    // بدون فلترة — عشان نشوف كل المشاريع
-    repos.value = data;
-
-  } catch (err) {
-    console.log(err);
-    error.value = true;
-  } finally {
-    loading.value = false;
-  }
-};
-
-onMounted(fetchRepos);
 </script>
 
 <style scoped>
-.card {
-  transition: 0.3s;
+.projects-section {
+  padding: 100px 0;
+  text-align: center;
 }
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+/* Title */
+.section-title {
+  font-size: 2.6rem;
+  margin-bottom: 50px;
+  font-weight: 700;
+  color: var(--heading);
+  text-shadow: 0 0 18px var(--primary);
+}
+
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 35px;
+}
+
+/* Card */
+.project-card {
+  padding: 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  box-shadow: 0 0 25px rgba(143, 74, 255, 0.4);
+  backdrop-filter: blur(14px);
+  transition: 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 35px var(--primary);
+}
+
+/* Image */
+.project-image img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 18px rgba(143, 74, 255, 0.3);
+}
+
+/* Title */
+.project-title {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--text);
+  text-shadow: 0 0 12px var(--primary);
+}
+
+/* Description */
+.project-desc {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  margin: 10px 0 20px;
+}
+
+/* Tags */
+.tags {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.tag {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.85rem;
+}
+
+.star-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.btn-small {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+  border-radius: 10px;
 }
 </style>

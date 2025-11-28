@@ -1,8 +1,7 @@
 export const skills = [
-  { name: "Web Development", percent: 90 },
-  { name: "Flutter & Mobile Apps", percent: 85 },
-  { name: "Embedded Systems", percent: 80 },
-  { name: "Python / Java / C++", percent: 75 },
-  { name: "Database & Firebase", percent: 70 },
-  { name: "Problem Solving", percent: 85 },
+  { name: "Flutter & Dart", percent: 85 },
+  { name: "Vue.js / Frontend", percent: 80 },
+  { name: "Embedded Systems", percent: 75 },
+  { name: "Java / Python / C++", percent: 70 },
+  { name: "Firebase / Databases", percent: 65 },
 ];

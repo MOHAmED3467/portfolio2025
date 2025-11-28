@@ -1,19 +1,19 @@
 {
-  "name": "mohamed-portfolio",
+  "name": "portfolio-pro",
   "version": "1.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "aos": "^2.3.4",
-    "bootstrap": "^5.3.3",
-    "vue": "^3.4.0"
+    "@emailjs/browser": "^4.4.1",
+    "gsap": "^3.12.5",
+    "photoswipe": "^5.4.2",
+    "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.0",
-    "vite": "^5.0.0"
+    "@vitejs/plugin-vue": "^5.0.4",
+    "vite": "^5.1.0"
   }
 }

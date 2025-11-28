@@ -1,5 +1,14 @@
 <template>
-  <footer class="bg-primary text-center text-white py-4">
-    <p class="mb-0">&copy; 2025 Mohamed Ehab | All Rights Reserved</p>
+  <footer class="footer">
+    © 2025 Mohamed Ehab — Neon Portfolio PRO
   </footer>
 </template>
+
+<style scoped>
+.footer {
+  text-align: center;
+  padding: 30px 0;
+  color: #8f4aff;
+  text-shadow: 0 0 12px #8f4aff;
+}
+</style>

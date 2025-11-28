@@ -1,22 +1,17 @@
 export const timeline = [
   {
-    title: "Bachelor of Technology – New Cairo Technology College",
-    date: "2022 – Expected 2026",
-    desc: "Studied Frontend & Backend development, specialized in Embedded Systems & Flutter mobile apps.",
+    title: "New Cairo Technology College – BTech",
+    date: "2022 - 2026",
+    description: "Studying Software, Mobile Apps, Web Development & Embedded Systems."
   },
   {
-    title: "Student Projects – NCT College",
-    date: "2022 – 2025",
-    desc: "Smart Garage Parking System, University Website, Hedayati App, Car Reporting System.",
-  },
-  {
-    title: "Garage Smart System",
+    title: "Smart Garage IoT System",
     date: "2024",
-    desc: "Developed a smart parking management IoT system.",
+    description: "Developed a smart parking automation system."
   },
   {
     title: "Hedayati Mobile App",
     date: "2025",
-    desc: "Created a guidance app to assist users with navigation and daily tasks.",
-  },
+    description: "Assisted users with navigation and daily tasks."
+  }
 ];

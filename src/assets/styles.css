@@ -1,21 +1,113 @@
-.dark-mode {
-  background-color: #121212 !important;
-  color: #eee !important;
+/* ==============================
+   GLOBAL VARIABLES FOR ALL THEMES
+============================== */
+html, body {
+  overflow-x: hidden !important;
 }
 
-.dark-mode .navbar {
-  background: #000 !important;
+:root {
+  --bg: #000;
+  --text: #fff;
+  --text-soft: #ddd;
+  --heading: #8f4aff;
+  --card-bg: rgba(255,255,255,0.06);
+  --primary: #8f4aff;
+  --accent: #2de0ff;
+  --border: rgba(255,255,255,0.2);
+  --shadow: 0 0 20px #8f4aff;
 }
 
-.dark-mode .card {
-  background: #1e1e1e !important;
-  color: white !important;
+/* =============================
+   NEON THEME
+============================== */
+body.theme-neon {
+  --bg: linear-gradient(160deg, #050016, #080020, #000011);
+  --text: #dcdcff;
+  --text-soft: #bfbfff;
+  --heading: #8f4aff;
+  --card-bg: rgba(255,255,255,0.07);
+  --primary: #8f4aff;
+  --accent: #2de0ff;
+  --border: rgba(143,74,255,0.4);
+  --shadow: 0 0 25px #8f4aff;
 }
 
-.dark-mode section {
-  background: #181818 !important;
+/* =============================
+   DARK THEME
+============================== */
+body.theme-dark {
+  --bg: #0f0f17;
+  --text: #f1f1f1;
+  --text-soft: #c8c8c8;
+  --heading: #9f7fff;
+  --card-bg: #1a1a23;
+  --primary: #7f4aff;
+  --accent: #448dff;
+  --border: rgba(255,255,255,0.1);
+  --shadow: 0 0 10px #000;
 }
 
-.dark-mode .section-title {
-  color: white !important;
+/* =============================
+   LIGHT THEME
+============================== */
+body.theme-light {
+  --bg: #f6f7fb;
+  --text: #222;
+  --text-soft: #555;
+  --heading: #6c63ff;
+  --card-bg: #ffffff;
+  --primary: #6c63ff;
+  --accent: #2d6dff;
+  --border: rgba(0,0,0,0.1);
+  --shadow: none;
+}
+
+/* =============================
+   ELEMENTS USING VARIABLES
+============================== */
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.35s ease;
+}
+
+h1, h2, h3, h4, h5 {
+  color: var(--heading) !important;
+  text-shadow: 0 0 10px var(--primary);
+}
+
+p, li, a, span {
+  color: var(--text-soft) !important;
+}
+
+.neon-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: 0.4s;
+}
+
+.navbar a {
+  color: var(--text);
+}
+
+.neon-btn {
+  background: var(--primary);
+  color: #fff !important;
+  box-shadow: 0 0 18px var(--primary);
+}
+
+.neon-btn:hover {
+  box-shadow: 0 0 30px var(--primary);
+}
+
+.neon-outline {
+  border: 2px solid var(--accent);
+  color: var(--accent) !important;
+}
+
+.neon-outline:hover {
+  background: var(--accent);
+  color: #000 !important;
 }

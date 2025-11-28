@@ -1,26 +1,35 @@
-<script setup>
-import { ref, onMounted } from "vue";
+// ========= Fetch GitHub Projects + Custom Thumbnails ========= //
 
-const repos = ref([]);
-const loading = ref(true);
-
-const fetchRepos = async () => {
+export async function fetchGitHubProjects() {
   try {
-    const response = await fetch(
-      "https://api.github.com/users/MOHAmED3467/repos"
-    );
-    const data = await response.json();
+    const res = await fetch("https://api.github.com/users/MOHAmED3467/repos");
+    const data = await res.json();
 
-    // نفلتر المشاريع المهمة بس (مش كل الريبو)
-    repos.value = data.filter(repo =>
-      !repo.fork && repo.name !== "MOHAmED3467" // exclude self repo
-    );
-  } catch (error) {
-    console.error("GitHub API Error:", error);
-  } finally {
-    loading.value = false;
+    return data.map((repo) => ({
+      id: repo.id,
+      name: repo.name,
+      description: repo.description,
+      language: repo.language,
+      stars: repo.stargazers_count,
+      url: repo.html_url,
+      demo: null, // تقدر تضيف Demo links لو حبيت
+      image: getProjectImage(repo.name), // thumbnail
+    }));
+  } catch (err) {
+    console.error("GitHub API Error:", err);
+    return [];
   }
-};
+}
 
-onMounted(fetchRepos);
-</script>
+// ========= Images for Each Project ========= //
+
+function getProjectImage(name) {
+  const images = {
+    "portfolio2025": new URL("../assets/projects/portfolio.jpg", import.meta.url).href,
+    "vue-shop": new URL("../assets/projects/vue-shop.jpg", import.meta.url).href,
+    "news-app-flutter": new URL("../assets/projects/flutter-news.jpg", import.meta.url).href,
+    "doctor": new URL("../assets/projects/doctor.jpg", import.meta.url).href,
+  };
+
+  return images[name] || new URL("../assets/projects/default.jpg", import.meta.url).href;
+}
