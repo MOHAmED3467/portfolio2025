@@ -99,7 +99,7 @@ onMounted(() => {
   type();
 });
 
-import profileImg from "src/assets/images/profile.jpg";
+
 
 </script>
 
