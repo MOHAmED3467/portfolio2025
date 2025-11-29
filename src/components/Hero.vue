@@ -100,7 +100,7 @@ onMounted(() => {
 });
 
 import profileImg from "src/assets/images/profile.jpg";
->>>>>>> 69650f0bb3eb81901eaa0c784099c7f62a657a73
+
 </script>
 
 <style scoped>
