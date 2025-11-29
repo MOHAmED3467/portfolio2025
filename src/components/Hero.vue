@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
+
 import { ref, onMounted } from "vue";
 import gsap from "gsap";
 import profileImg from "../assets/images/profile.jpg";
